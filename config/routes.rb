@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :post_images, only: [:new, :create, :index, :show]
+  
   devise_for :users
   root to: "homes#top"
-  get '/homes/about' => 'homes#about', as: 'about'
+  get "/homes/about" => "homes#about", as: "about"
 
   # 以下3行の記載なしでログアウトできなかったので追記してます（AI質問
   devise_scope :user do
